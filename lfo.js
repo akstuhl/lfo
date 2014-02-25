@@ -13,9 +13,7 @@ window.addEventListener("load",function() {
 	  init: function(p) {
 
 		this._super(p, {
-			sheet: "player",
-			x: 410,
-			y: 240
+			sheet: "player"
 		});
 
 		this.add('2d, platformerControls');
@@ -101,7 +99,7 @@ window.addEventListener("load",function() {
 		startTime = D.getTime();
 
 
-		var player = stage.insert(new Q.Player());
+		var player = stage.insert(new Q.Player({ x: 410, y: 240 }));
 
 		stage.add("viewport").follow(player);
 
