@@ -61,6 +61,19 @@ window.addEventListener("load",function() {
 	  		//this.p.x = this.initialX + 150 * oscFactor;
 	  	}		
 	});
+	
+	
+	Q.Sprite.extend("Controller", {
+		init: function(p) {
+			this._super(p, { sheet: 'controller' });
+		},
+		
+		step: function(p) {
+			if (this.p.connectedOsc) {
+				this.controlPos = p.connectedOsc.oscPos;
+			}
+		}
+	});
 
 
 	Q.Sprite.extend("Door", {
@@ -82,8 +95,8 @@ window.addEventListener("load",function() {
 	  },
 	  
 	  step: function(p) {
-	      if (this.p.connectedOsc) {
-	          this.p.x = this.initialX + this.range * this.p.connectedOsc.oscPos;
+	      if (this.p.myController) {
+	          this.p.x = this.initialX + this.range * this.p.myController.controlPos;
 	      }
 	  }
 	});
@@ -106,9 +119,11 @@ window.addEventListener("load",function() {
 
 		stage.insert(new Q.Door({ x: 1024, y: 240 }));
 		
-		var osc1 = stage.insert(new Q.Oscillator({ x: 590, y: 140 }));
+		var osc1 = stage.insert(new Q.Oscillator({ x: 300, y: 240 }));
+		
+		var controller1 = stage.insert(new Q.Controller({ x: 410, y: 240 }));
 
-		stage.insert(new Q.Platform({ x: 590, y: 260, connectedOsc: osc1 }));
+		stage.insert(new Q.Platform({ x: 590, y: 260, myController: controller1 }));
 	});
 
 	Q.scene('endGame',function(stage) {
