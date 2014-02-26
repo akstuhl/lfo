@@ -4,7 +4,7 @@ window.addEventListener("load",function() {
 	//var startTime = D.getTime();
 
 	var Q = window.Q = Quintus( {development: true} )
-			.include("Sprites, Scenes, Input, 2D, Anim, Touch, UI")
+			.include("Sprites, Scenes, Input, 2D, Anim, Touch, UI, Components")
 			.setup({ maximize: true })
 			.controls().touch()
 
@@ -16,7 +16,7 @@ window.addEventListener("load",function() {
 			sheet: "player"
 		});
 
-		this.add('2d, platformerControls');
+		this.add('2d, betterPlatformerControls');
 
 		this.on("hit.sprite",function(collision) {
 
