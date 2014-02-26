@@ -70,7 +70,7 @@ window.addEventListener("load",function() {
 		
 		step: function(p) {
 			if (this.p.connectedOsc) {
-				this.controlPos = p.connectedOsc.oscPos;
+				this.controlPos = this.p.connectedOsc.oscPos;
 			}
 		}
 	});
@@ -91,7 +91,7 @@ window.addEventListener("load",function() {
 		
 		this.initialX = this.p.x;
 		this.range = 150;
-		//this.connectedOsc = null;
+		//this.p.myController = null;
 	  },
 	  
 	  step: function(p) {
@@ -104,27 +104,25 @@ window.addEventListener("load",function() {
 
 	Q.scene("level1",function(stage) {
 
-
 		stage.collisionLayer(new Q.TileLayer({
 								 dataAsset: 'level1.json',
 								 sheet:     'tiles' }));
 
 		startTime = D.getTime();
 
-
-		var player = stage.insert(new Q.Player({ x: 410, y: 240 }));
+		var player = stage.insert(new Q.Player({ x: 410, y: 190 }));
 
 		stage.add("viewport").follow(player);
 
-
 		stage.insert(new Q.Door({ x: 1024, y: 240 }));
 		
-		var osc1 = stage.insert(new Q.Oscillator({ x: 300, y: 240 }));
+		var osc1 = stage.insert(new Q.Oscillator({ x: 200, y: 240 }));
 		
-		var controller1 = stage.insert(new Q.Controller({ x: 410, y: 240 }));
+		var controller1 = stage.insert(new Q.Controller({ x: 300, y: 240, connectedOsc: osc1 }));
 
 		stage.insert(new Q.Platform({ x: 590, y: 260, myController: controller1 }));
 	});
+
 
 	Q.scene('endGame',function(stage) {
 	  var container = stage.insert(new Q.UI.Container({
