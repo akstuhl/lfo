@@ -1,5 +1,1 @@
-{"player":{"sx":0,"sy":0,"cols":1,"tilew":30,"tileh":30,"frames":1},
-"door":{"sx":0,"sy":30,"cols":1,"tilew":30,"tileh":30,"frames":1},
-"platform":{"sx":0,"sy":30,"cols":1,"tilew":30,"tileh":30,"frames":1},
-"oscillator":{"sx":0,"sy":30,"cols":1,"tilew":30,"tileh":30,"frames":1},
-"controller":{"sx":0,"sy":30,"cols":1,"tilew":30,"tileh":30,"frames":1}}
+{"door":{"sx":0,"sy":30,"cols":1,"tilew":30,"tileh":30,"frames":1}}

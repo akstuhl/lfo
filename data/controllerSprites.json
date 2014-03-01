@@ -1,0 +1,4 @@
+{"controller-horiz-unconnected":{"sx":0,"sy":0,"cols":1,"tilew":30,"tileh":30,"frames":1},
+"controller-horiz-connected":{"sx":0,"sy":30,"cols":1,"tilew":30,"tileh":30,"frames":1},
+"controller-vert-unconnected":{"sx":0,"sy":60,"cols":1,"tilew":30,"tileh":30,"frames":1},
+"controller-vert-connected":{"sx":0,"sy":90,"cols":1,"tilew":30,"tileh":30,"frames":1}}

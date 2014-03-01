@@ -13,7 +13,7 @@ window.addEventListener("load",function() {
 	  init: function(p) {
 
 		this._super(p, {
-			sheet: "player"
+			sheet: "player-right-unconnected"
 		});
 
 		this.add('2d, betterPlatformerControls');
@@ -32,7 +32,7 @@ window.addEventListener("load",function() {
   
 	  ride: function(collision) {
 		if(collision.obj.isA("Platform")) {
-		  this.p.vx = 500;
+		  //this.p.vx = 500;
 		}
 	  },
 
@@ -50,7 +50,7 @@ window.addEventListener("load",function() {
 	
  	Q.Sprite.extend("Oscillator", {
  		init: function(p) {
- 			this._super(p, { sheet: 'oscillator' });
+ 			this._super(p, { sheet: 'oscillator-connected' });
  			this.frequency = 0.25;
  		},
  		
@@ -65,7 +65,7 @@ window.addEventListener("load",function() {
 	
 	Q.Sprite.extend("Controller", {
 		init: function(p) {
-			this._super(p, { sheet: 'controller' });
+			this._super(p, { sheet: 'controller-horiz-connected' });
 		},
 		
 		step: function(p) {
@@ -90,7 +90,7 @@ window.addEventListener("load",function() {
 		this.p.gravity = 0;
 		
 		this.initialX = this.p.x;
-		this.range = 150;
+		this.range = 135;
 		//this.p.myController = null;
 	  },
 	  
@@ -114,7 +114,7 @@ window.addEventListener("load",function() {
 
 		stage.add("viewport").follow(player);
 
-		stage.insert(new Q.Door({ x: 1024, y: 240 }));
+		stage.insert(new Q.Door({ x: 1024, y: 235 }));
 		
 		var osc1 = stage.insert(new Q.Oscillator({ x: 200, y: 240 }));
 		
@@ -141,10 +141,14 @@ window.addEventListener("load",function() {
 	  container.fit(20);
 	});
 
-	Q.load("sprites.png, sprites.json, level1.json, tiles.png", function() {
+	Q.load("playerSprites.png, playerSprites.json, oscillatorSprites.png, oscillatorSprites.json, controllerSprites.png, controllerSprites.json, platformSprites.png, platformSprites.json, doorSprites.png, doorSprites.json, level1.json, tiles.png", function() {
 	  Q.sheet("tiles","tiles.png", { tilew: 32, tileh: 32 });
 
-	  Q.compileSheets("sprites.png","sprites.json");
+	  Q.compileSheets("playerSprites.png","playerSprites.json");
+	  Q.compileSheets("oscillatorSprites.png", "oscillatorSprites.json");
+	  Q.compileSheets("controllerSprites.png", "controllerSprites.json");
+	  Q.compileSheets("platformSprites.png", "platformSprites.json");
+	  Q.compileSheets("doorSprites.png", "doorSprites.json");
 
 	  Q.stageScene("level1");
 	});
